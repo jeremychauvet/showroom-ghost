@@ -1,0 +1,29 @@
+version: '3.1'
+
+services:
+
+  ghost:
+    image: ghost:3-alpine
+    restart: always
+    volumes:
+      - ./data/ghost:/var/lib/ghost/content
+      #- ./conf/config.production.json:/var/lib/ghost/config.production.json:ro
+    ports:
+      - 8080:2368
+    environment:
+      # see https://docs.ghost.org/docs/config#section-running-ghost-with-config-env-variables
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: example
+      database__connection__database: ghost
+      # this url value is just an example, and is likely wrong for your environment!
+      url: http://localhost:8080
+
+  db:
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - ./data/database:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
