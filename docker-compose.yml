@@ -2,12 +2,13 @@ version: '3.1'
 
 services:
 
-  ghost:
+  cms:
     image: ghost:3-alpine
     restart: always
+    depends_on:
+      - db
     volumes:
       - ./data/ghost:/var/lib/ghost/content
-      #- ./conf/config.production.json:/var/lib/ghost/config.production.json:ro
     ports:
       - 8080:2368
     environment:
@@ -15,9 +16,8 @@ services:
       database__client: mysql
       database__connection__host: db
       database__connection__user: root
-      database__connection__password: example
+      database__connection__password: password
       database__connection__database: ghost
-      # this url value is just an example, and is likely wrong for your environment!
       url: http://localhost:8080
 
   db:
@@ -25,5 +25,7 @@ services:
     restart: always
     volumes:
       - ./data/database:/var/lib/mysql
+    ports:
+      - 3306:3306  
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: password
