@@ -1,5 +1,7 @@
 # Ghost showroom
 
+![ghost preview](docs/ghost.png)
+
 # How to start showroom
 In your terminal, please execute the following command : 
 
@@ -12,3 +14,18 @@ This will launch Ghost app and his database. Shorty after that, you will be able
 - back office : http://localhost:8080/ghost
 
 You can create the first admin user by accessing http://localhost:8080/ghost.
+
+
+# How to stop showroom
+In your terminal, please execute the following command : 
+
+```bash
+make stop
+```
+
+# How to reset showroom
+In your terminal, please execute the following command : 
+
+```bash
+make reset
+```
