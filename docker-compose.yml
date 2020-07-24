@@ -10,7 +10,7 @@ services:
     volumes:
       - ./data/ghost:/var/lib/ghost/content
     ports:
-      - 8080:2368
+      - 80:2368
     environment:
       # see https://docs.ghost.org/docs/config#section-running-ghost-with-config-env-variables
       database__client: mysql
@@ -18,7 +18,7 @@ services:
       database__connection__user: root
       database__connection__password: password
       database__connection__database: ghost
-      url: http://localhost:8080
+      url: http://localhost
 
   db:
     image: mysql:5.7
