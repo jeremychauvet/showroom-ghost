@@ -3,3 +3,4 @@
 
 start:
 	docker-compose up -d
+	docker-compose logs -ft
