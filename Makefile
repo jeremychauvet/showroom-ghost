@@ -1,4 +1,4 @@
-.PHONY: start stop reset
+.PHONY: start stop reset validate
 .DEFAULT: start
 
 start:
@@ -11,4 +11,7 @@ stop:
 reset:
 	docker-compose down
 	rm -fr ./data
-	make start	
+	make start
+
+validate:
+	pre-commit run --all-files
