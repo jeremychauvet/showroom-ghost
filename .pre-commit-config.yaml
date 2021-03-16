@@ -1,0 +1,15 @@
+repos:
+  - repo: https://github.com/ansible/ansible-lint.git
+    rev: v5.0.0
+    hooks:
+      - id: ansible-lint
+        files: \.(yaml|yml)$
+  - repo: git://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: check-merge-conflict
+      - id: detect-aws-credentials
+      - id: detect-private-key
+      - id: check-added-large-files
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
