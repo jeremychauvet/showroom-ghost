@@ -8,6 +8,7 @@ services:
       - db
     ports:
       - 80:2368
+      - 2368:2368
     volumes:
       - ./src:/var/lib/ghost/content
 
