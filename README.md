@@ -1,8 +1,10 @@
 # Ghost showroom
 
-![ghost preview](docs/ghost.png)
+Showroom to sandbox [Ghost](http://ghost.org/), one of the best CMS tool I've ever used.
 
-## How to start showroom
+![ghost preview](docs/ghost_backoffice.png)
+
+## Start Ghost
 
 In your terminal, please execute the following command :
 
@@ -12,12 +14,12 @@ make start
 
 This will launch Ghost app and his database. Shorty after that, you will be able to access :
 
-- [front office](http://localhost:8080)
-- [back office](http://localhost:8080/ghost)
+- [front office](http://localhost:80)
+- [back office](http://localhost:80/ghost)
 
-You can create the first admin user by accessing [the admin panel](http://localhost:8080/ghost).
+You can create the first admin user by accessing [the admin panel](http://localhost:80/ghost).
 
-## How to stop showroom
+## Stop showroom
 
 In your terminal, please execute the following command :
 
@@ -25,7 +27,7 @@ In your terminal, please execute the following command :
 make stop
 ```
 
-## How to reset showroom
+## Reset showroom
 
 In your terminal, please execute the following command :
 
