@@ -2,15 +2,12 @@ version: '3.1'
 
 services:
 
-  cms:
-    image: ghost:3-alpine
-    restart: always
+  server:
+    image: ghost:4.1
     depends_on:
       - db
     volumes:
-      - ./data/ghost:/var/lib/ghost/content
-    ports:
-      - 80:2368
+      - ./src:/var/lib/ghost/content
     environment:
       # see https://docs.ghost.org/docs/config#section-running-ghost-with-config-env-variables
       database__client: mysql
@@ -21,11 +18,10 @@ services:
       url: http://localhost
 
   db:
-    image: mysql:5.7
-    restart: always
+    image: mysql:8
     volumes:
-      - ./data/database:/var/lib/mysql
+      - ./data/:/var/lib/mysql
     ports:
-      - 3306:3306  
+      - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: password
