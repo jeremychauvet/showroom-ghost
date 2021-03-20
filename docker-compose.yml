@@ -6,22 +6,19 @@ services:
     image: ghost:4.1
     depends_on:
       - db
+    ports:
+      - 80:2368
     volumes:
       - ./src:/var/lib/ghost/content
-    environment:
-      # see https://docs.ghost.org/docs/config#section-running-ghost-with-config-env-variables
-      database__client: mysql
-      database__connection__host: db
-      database__connection__user: root
-      database__connection__password: password
-      database__connection__database: ghost
-      url: http://localhost
 
   db:
-    image: mysql:8
+    image: mariadb:10
     volumes:
       - ./data/:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: default_root_password
+      MYSQL_DATABASE: ghost
+      MYSQL_USER: ghost_user
+      MYSQL_PASSWORD: ghost_password
